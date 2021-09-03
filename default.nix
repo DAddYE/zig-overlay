@@ -17,6 +17,7 @@ in lib.attrsets.mapAttrs (k: v:
         dontFixup = true;
         installPhase = ''
           mkdir -p $out/{doc,bin,lib}
+          echo $(ls -al)
           [ -d "docs" ] && cp -r docs/* $out/doc
           cp -r lib/* $out/lib
           cp zig $out/bin/zig
