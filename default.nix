@@ -17,7 +17,7 @@ in lib.attrsets.mapAttrs (k: v:
         dontFixup = true;
         installPhase = ''
           mkdir -p $out/{doc,bin,lib}
-          cp langref.html $out/doc
+          cp -r doc/* $out/doc
           cp -r lib/* $out/lib
           cp zig $out/bin/zig
         '';
@@ -38,7 +38,7 @@ in lib.attrsets.mapAttrs (k: v:
         cp -r ${if k == "0.6.0" then "doc/*"
                 else
                   if k == "0.7.0" then "langref.html"
-                  else "docs/*"} $out/doc
+                  else "doc/*"} $out/doc
         cp -r lib/* $out/lib
         cp zig $out/bin/zig
       '';
